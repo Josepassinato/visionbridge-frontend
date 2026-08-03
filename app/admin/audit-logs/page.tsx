@@ -54,62 +54,14 @@ export default function AuditLogsPage() {
     const loadLogs = async () => {
       setLoading(true);
       try {
-        // Mock data - in real app, fetch from API
-        const mockLogs: ExpandableAuditLog[] = [
-          {
-            id: '1',
-            actor: 'admin@example.com',
-            action: 'create',
-            entity_type: 'tenant',
-            entity_id: 'tenant-123',
-            timestamp: new Date(Date.now() - 60000).toISOString(),
-            details: { name: 'New Tenant', email: 'tenant@example.com' },
-          },
-          {
-            id: '2',
-            actor: 'admin@example.com',
-            action: 'update',
-            entity_type: 'tenant',
-            entity_id: 'tenant-123',
-            timestamp: new Date(Date.now() - 120000).toISOString(),
-            details: { field: 'search_prompt', old_value: 'Detect people', new_value: 'Detect people and vehicles' },
-          },
-          {
-            id: '3',
-            actor: 'admin@example.com',
-            action: 'approve',
-            entity_type: 'adjustment_request',
-            entity_id: 'request-456',
-            timestamp: new Date(Date.now() - 300000).toISOString(),
-            details: { request: 'Increase sensitivity', notes: 'Approved - will implement in next release' },
-          },
-          {
-            id: '4',
-            actor: 'admin@example.com',
-            action: 'reject',
-            entity_type: 'adjustment_request',
-            entity_id: 'request-789',
-            timestamp: new Date(Date.now() - 600000).toISOString(),
-            details: { request: 'Change storage', notes: 'Not feasible at this time' },
-          },
-          {
-            id: '5',
-            actor: 'system',
-            action: 'generate',
-            entity_type: 'report',
-            entity_id: 'report-101',
-            timestamp: new Date(Date.now() - 3600000).toISOString(),
-            details: { period: '24h', files_analyzed: 45 },
-          },
-        ];
+        const { logs: fetchedLogs } = await apiClient.getAuditLogs(page, 20, entityType !== 'all' ? entityType : undefined);
 
-        setLogs(
-          mockLogs.filter((log) => {
-            if (entityType !== 'all' && log.entity_type !== entityType) return false;
-            if (actor !== 'all' && log.actor !== actor) return false;
-            return true;
-          })
-        );
+        const filtered = fetchedLogs.filter((log: AuditLogEntry) => {
+          if (actor !== 'all' && log.actor !== actor) return false;
+          return true;
+        });
+
+        setLogs(filtered as ExpandableAuditLog[]);
       } catch (err) {
         console.error('Failed to load audit logs:', err);
       } finally {

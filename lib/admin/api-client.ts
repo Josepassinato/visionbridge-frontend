@@ -193,11 +193,14 @@ export class AdminApiClient {
     return data;
   }
 
-  async getFile(tenantId: string, fileId: string): Promise<ProcessedFile> {
-    const { data } = await this.client.get(`/client/files/${fileId}`, {
-      headers: { 'X-Tenant-ID': tenantId },
-    });
+  async getFile(fileId: string): Promise<ProcessedFile> {
+    const { data } = await this.client.get(`/assets/${fileId}`);
     return data;
+  }
+
+  async getFileAnalysis(fileId: string): Promise<any> {
+    const { data } = await this.client.get(`/analysis-runs?asset_id=${fileId}`);
+    return data.results?.[0] || null;
   }
 
   // Analysis & Reports

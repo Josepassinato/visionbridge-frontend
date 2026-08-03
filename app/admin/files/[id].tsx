@@ -21,32 +21,11 @@ export default function FileDetailPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Note: This would need tenantId in real implementation
-        // For now, we fetch without it as a placeholder
-        setFile({
-          id: fileId,
-          file_path: 'gs://bucket/file.jpg',
-          status: 'completed',
-          created_at: new Date().toISOString(),
-          file_size_bytes: 2048576,
-        });
+        const fileData = await apiClient.getFile(fileId);
+        setFile(fileData);
 
-        setAnalysis({
-          summary: 'Person detected in warehouse area',
-          detected: true,
-          count: 1,
-          objects: [
-            {
-              label: 'person',
-              attributes: { clothing: 'yellow vest' },
-              confidence: 0.95,
-            },
-          ],
-          confidence: 0.95,
-          risk_level: 'low',
-          recommended_action: 'Monitor for compliance',
-          requires_human_review: false,
-        });
+        const analysisData = await apiClient.getFileAnalysis(fileId);
+        setAnalysis(analysisData);
       } catch (err: any) {
         setError(err?.message || 'Failed to load file details');
       } finally {
