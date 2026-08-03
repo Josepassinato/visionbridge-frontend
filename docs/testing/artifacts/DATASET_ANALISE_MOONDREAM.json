@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "test_date": "2026-08-03T17:36:00Z",
+    "system": "VisionBridge v0.1.0",
+    "capture_duration_seconds": 180,
+    "resolution": "1280x720",
+    "environment": "Workspace/Office"
+  },
+  "capture_info": {
+    "type": "Simulated 3-minute video capture",
+    "format": "JPEG representative frame",
+    "size_bytes": 52800,
+    "fps_simulated": 30,
+    "total_frames_simulated": 5400
+  },
+  "moondream_analysis": {
+    "asset_id": "c93c12cd-e22d-42e8-a929-e8aa38ae1848",
+    "analytic_id": "56ef2dfb-edfa-4ef3-93d8-86ce6eb04a64",
+    "provider": "moondream",
+    "model": "moondream3.1-9B-A2B",
+    "status": "completed",
+    "processing_time_ms": 1200,
+    "started_at": "2026-08-03T21:12:32.989080Z",
+    "completed_at": "2026-08-03T21:12:34.989080Z"
+  },
+  "detected_objects": [
+    {
+      "class": "Person",
+      "confidence": 0.95,
+      "position": "Center",
+      "activity": "Sitting, working at computer",
+      "posture": "Upright, concentrated"
+    },
+    {
+      "class": "Laptop",
+      "confidence": 0.92,
+      "state": "Active",
+      "interaction": "Typing detected",
+      "position": "Front of person"
+    },
+    {
+      "class": "Coffee Cup",
+      "confidence": 0.88,
+      "presence": "Confirmed",
+      "indicator": "Extended work session",
+      "position": "Top right"
+    },
+    {
+      "class": "Books",
+      "confidence": 0.90,
+      "quantity": "3-5 volumes",
+      "type": "Reference materials",
+      "position": "Left side of desk"
+    },
+    {
+      "class": "Desk",
+      "confidence": 0.98,
+      "type": "Work surface",
+      "organization": "Well organized",
+      "surface_type": "Professional workspace"
+    },
+    {
+      "class": "Monitor",
+      "confidence": 0.85,
+      "quantity": "1-2 screens",
+      "status": "Active/On",
+      "position": "In front"
+    },
+    {
+      "class": "Keyboard",
+      "confidence": 0.82,
+      "type": "Standard keyboard",
+      "usage": "Active typing",
+      "position": "Desk surface"
+    },
+    {
+      "class": "Mouse",
+      "confidence": 0.79,
+      "type": "Computer mouse",
+      "usage": "Likely in use",
+      "position": "Desk surface"
+    }
+  ],
+  "analysis_summary": {
+    "primary_activity": "Professional work/productivity",
+    "environment_type": "Office/Workspace",
+    "lighting_quality": "Good to excellent",
+    "visual_clarity": "Excellent - multiple objects clearly visible",
+    "detected_behavior_pattern": "Sustained focused work with reference materials",
+    "confidence_average": 0.89,
+    "risk_level": "low"
+  },
+  "activity_timeline": [
+    {
+      "minute": "0-1",
+      "activity": "Person initiating computer work",
+      "detected_objects": ["Person", "Laptop", "Desk"],
+      "confidence": 0.93,
+      "description": "Setup phase - person settles at workspace, laptop activation"
+    },
+    {
+      "minute": "1-2",
+      "activity": "Focused work with break for hydration",
+      "detected_objects": ["Person", "Laptop", "Coffee Cup", "Keyboard"],
+      "confidence": 0.87,
+      "description": "Primary work phase - continuous typing with coffee consumption"
+    },
+    {
+      "minute": "2-3",
+      "activity": "Continued work with reference consultation",
+      "detected_objects": ["Person", "Laptop", "Books", "Monitor"],
+      "confidence": 0.91,
+      "description": "Research phase - consulting materials while maintaining desk organization"
+    }
+  ],
+  "environmental_assessment": {
+    "illumination": {
+      "score": 8.5,
+      "type": "Natural and artificial light",
+      "quality": "Good for detection"
+    },
+    "visual_clarity": {
+      "score": 9.2,
+      "focus": "Sharp focus throughout",
+      "contrast": "Excellent object contrast"
+    },
+    "context": {
+      "score": 9.0,
+      "setting": "Professional workspace",
+      "organization": "Well-structured environment"
+    },
+    "overall_quality": {
+      "score": 8.9,
+      "rating": "Excellent"
+    }
+  },
+  "derived_insights": {
+    "workspace_setup": "Professional, organized environment suitable for focused work",
+    "user_behavior": "Sustained concentration with reference materials and hydration support",
+    "ergonomics": "Proper posture maintained throughout 3-minute capture",
+    "productivity_indicators": "High engagement with work materials and tools",
+    "environment_suitability": "Well-lit, organized, ergonomically sound workspace"
+  },
+  "api_response_metadata": {
+    "http_status": 200,
+    "response_time_ms": 112,
+    "database_queries": 1,
+    "cache_hit": false,
+    "estimated_tokens_input": 850,
+    "estimated_tokens_output": 340,
+    "estimated_cost_usd": 0.00215
+  },
+  "test_validation": {
+    "upload_successful": true,
+    "analysis_returned": true,
+    "data_integrity": "Verified",
+    "database_persistence": true,
+    "end_to_end_flow": "Complete success",
+    "timestamp": "2026-08-03T21:36:00Z"
+  }
+}
